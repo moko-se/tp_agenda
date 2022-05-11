@@ -1,0 +1,32 @@
+{# /template/home.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %} Home page {% endblock %}
+{% block content %} 
+    <article class='container h-100 mt-5'>
+        <h2 class='display-4 text-center pt-2 text-primary'>Contact list</h2>
+        <table class="table table-striped table-hover text-center">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Phone</th>
+                <th scope="col">action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <th scope="row">{{ item.id}}</th>
+                        <td>{{ item.firstname}}</td>
+                        <td>{{ item.lastname}}</td>
+                        <td>{{ item.phone}}</td>
+                        <td><a href="{{path('app_view', {id:item.id})}}" class=" text-primary">See</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </article>
+{% endblock %}
